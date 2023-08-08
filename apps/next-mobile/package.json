@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "eslint \"**/*.{js,jsx,ts,tsx}\"",
+    "lint:next": "next lint",
+    "format": "prettier -w \"**/*.{js,jsx,ts,tsx,json,css}\""
   },
   "dependencies": {
     "@types/node": "20.4.8",
