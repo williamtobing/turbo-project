@@ -18,7 +18,7 @@
     "turbo": "^1.10.12"
   },
   "lint-staged": {
-    "apps/next-mobile/**/*.{ts,tsx}": [
+    "apps/next-adaptive/**/*.{ts,tsx}": [
       "turbo run lint --",
       "turbo run format -- -w"
     ],
