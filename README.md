@@ -13,8 +13,8 @@ pnpm dev
 ## Run script for spesific package using --filter
 
 ```bash
-pnpm dev --filter next-mobile
-pnpm lint --filter next-mobile
+pnpm dev --filter next-adaptive
+pnpm lint --filter next-adaptive
 ```
 
 ## Run turbo with no caching
