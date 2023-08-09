@@ -11,10 +11,6 @@ const config: Config = {
   theme: {
     extend: {
       colors: { ...palette },
-      fontFamily: {
-        jakarta: "'Plus Jakarta Sans', sans-serif",
-        ubuntu: "'Ubuntu', sans-serif",
-      },
       animation: {
         'spin-2s': 'spin 2s linear infinite',
       },
