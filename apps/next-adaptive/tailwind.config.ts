@@ -13,8 +13,12 @@ const config: Config = {
       colors: { ...palette },
       animation: { 'spin-2s': 'spin 2s linear infinite' },
       boxShadow: {
-        'neu-bunker': `5px 5px 0px ${palette.bunker}`,
-        'neu-daisyBush': `5px 5px 0px ${palette.daisyBush}`,
+        // TODO: complete this
+        'neu-bunker-5': `5px 5px 0px ${palette.bunker}`,
+        'neu-daisyBush-5': `5px 5px 0px ${palette.daisyBush}`,
+        'neu-chalky-5': `5px 5px 0px ${palette.chalky}`,
+
+        'neu-chalky-4': `4px 4px 0px ${palette.chalky}`,
       },
     },
   },

@@ -1,3 +1,4 @@
+import Footer from './Footer.organism';
 import PageLoader from './PageLoader.organism';
 
-export { PageLoader };
+export { Footer, PageLoader };
