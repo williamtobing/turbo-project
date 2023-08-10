@@ -1,5 +1,5 @@
 import React, { ReactNode, ReactElement } from 'react';
-import clsx from 'clsx';
+import { cn } from '@/utils';
 
 type Props = {
   children: ReactNode;
@@ -8,10 +8,10 @@ type Props = {
 
 const NeuBox: React.FC<Props> = ({ children, className }): ReactElement => (
   <div
-    className={clsx(
-      className,
+    className={cn(
       'border-bunker overflow-hidden border-2',
-      'bg-portage shadow-neu-bunker rounded-sm'
+      'bg-portage shadow-neu-bunker-5 rounded-sm',
+      className
     )}
   >
     {children}

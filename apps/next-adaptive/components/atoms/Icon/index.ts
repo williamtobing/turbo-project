@@ -5,6 +5,8 @@ import IcoTerminalBox from './IcoTerminalBox';
 import IcoPages from './IcoPages';
 import IcoGlobal from './IcoGlobal';
 import IcoMacbook from './IcoMacbook';
+import IcoLinkedinBox from './IcoLinkedinBox';
+import IcoGithub from './IcoGithub';
 
 const icons = {
   IcoReact,
@@ -14,6 +16,8 @@ const icons = {
   IcoPages,
   IcoGlobal,
   IcoMacbook,
+  IcoLinkedinBox,
+  IcoGithub,
 };
 
 export default icons;

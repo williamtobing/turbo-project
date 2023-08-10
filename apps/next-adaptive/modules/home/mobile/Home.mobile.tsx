@@ -1,13 +1,26 @@
 import React from 'react';
 import { Icon } from '@/components/atoms';
 import { NeuBox } from '@/components/molecules';
+import { Footer } from '@/components/organisms';
 import { DateFormat, cn } from '@/utils';
 
 const roleData = [
-  'Frontend Engineer',
-  'Web Developer',
-  'UI Designer',
-  'Web Designer',
+  {
+    role: 'Frontend Engineer',
+    icon: <Icon.IcoCodeSSlash className="h-5 w-5" variant="line" />,
+  },
+  {
+    role: 'Web Developer',
+    icon: <Icon.IcoGlobal className="h-5 w-5" variant="line" />,
+  },
+  {
+    role: 'UI Designer',
+    icon: <Icon.IcoPages className="h-5 w-5" variant="line" />,
+  },
+  {
+    role: 'Web Designer',
+    icon: <Icon.IcoMacbook className="h-5 w-5" variant="line" />,
+  },
 ];
 
 const timelineData = [
@@ -57,7 +70,7 @@ const timelineData = [
 ];
 
 export const Home: React.FC = () => (
-  <div className="bg-myWhite mx-auto h-screen max-w-lg">
+  <div className="bg-myWhite mx-auto min-h-screen max-w-lg">
     <div className="space-y-4 py-4">
       <div className="space-y-2 px-4">
         <div className="relative">
@@ -73,15 +86,15 @@ export const Home: React.FC = () => (
         </div>
 
         <div className="grid grid-cols-2 gap-2">
-          {roleData.map((role, i) => (
+          {roleData.map((item, i) => (
             <NeuBox key={i}>
               <div className="flex">
                 <div className="bg-chalky border-bunker flex items-center justify-center border-r-2 p-1.5">
-                  <Icon.IcoCodeSSlash className="h-5 w-5" variant="line" />
+                  {item.icon}
                 </div>
                 <div className="mx-1.5 flex items-center overflow-hidden">
                   <p className="whitespace-nowrap text-sm font-semibold">
-                    {role}
+                    {item.role}
                   </p>
                 </div>
               </div>
@@ -113,6 +126,18 @@ export const Home: React.FC = () => (
           </NeuBox>
         ))}
       </div>
+
+      <div className="space-y-2 px-4">
+        <p className="text-2xl font-bold underline">Recent projects</p>
+        <p className="animate-pulse italic">in progress&hellip;</p>
+      </div>
+
+      <div className="space-y-2 px-4">
+        <p className="text-2xl font-bold underline">Tech Stacks</p>
+        <p className="animate-pulse italic">in progress&hellip;</p>
+      </div>
     </div>
+
+    <Footer />
   </div>
 );
