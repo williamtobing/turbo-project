@@ -11,8 +11,10 @@ const config: Config = {
   theme: {
     extend: {
       colors: { ...palette },
-      animation: {
-        'spin-2s': 'spin 2s linear infinite',
+      animation: { 'spin-2s': 'spin 2s linear infinite' },
+      boxShadow: {
+        'neu-bunker': `5px 5px 0px ${palette.bunker}`,
+        'neu-daisyBush': `5px 5px 0px ${palette.daisyBush}`,
       },
     },
   },

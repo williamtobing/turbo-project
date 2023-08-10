@@ -1,4 +1,6 @@
 import React from 'react';
-import { PageLoader } from '@/components/organisms';
 
-export const Home: React.FC = () => <PageLoader />;
+// ! ATTENTION: temporary for mobile
+import { Home as HomeMobile } from '../mobile/Home.mobile';
+
+export const Home: React.FC = () => <HomeMobile />;
