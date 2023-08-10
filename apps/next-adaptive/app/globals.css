@@ -4,11 +4,7 @@
 
 @layer base {
   body {
-    @apply bg-myWhite;
-  }
-
-  #__next {
-    @apply bg-pureWhite;
+    @apply bg-grayChateau;
   }
 
   h1,
