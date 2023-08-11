@@ -74,7 +74,16 @@ export const Home: React.FC = () => (
     <div className="space-y-4 py-4">
       <div className="space-y-2 px-4">
         <div className="relative">
-          <NeuBox variant="sm" className="absolute right-0 cursor-pointer p-1">
+          <NeuBox
+            variant="sm"
+            className="absolute right-0 cursor-pointer p-1"
+            // TODO: handle this
+            aria-label="Main Menu"
+            onClick={() => undefined}
+            onKeyDown={() => undefined}
+            role="button"
+            tabIndex={0}
+          >
             <Icon.IcoSoundModule className="h-5 w-5" variant="fill" />
           </NeuBox>
 
@@ -112,7 +121,7 @@ export const Home: React.FC = () => (
             variant="md"
             className={cn('relative', item.latest ? 'bg-dullLavender' : '')}
           >
-            <div className="bg-chalky absolute right-0 mt-0.5 w-[4.75rem] px-2">
+            <div className="bg-chalky absolute right-0 mt-0.5 w-[4.75rem] rounded-l-md px-2">
               <p className="text-right text-xs font-semibold">
                 {DateFormat(item.date).toShortMonth()}
               </p>

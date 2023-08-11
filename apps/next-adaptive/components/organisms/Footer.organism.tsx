@@ -23,6 +23,7 @@ const Footer: React.FC = () => (
           <div className="flex items-end space-x-2">
             <a
               href="https://www.linkedin.com/in/williamtobing/"
+              aria-label="Take a look at my LinkedIn account"
               target="_blank"
               rel="noreferrer"
             >
@@ -35,6 +36,7 @@ const Footer: React.FC = () => (
             </a>
             <a
               href="https://github.com/williamtobing"
+              aria-label="Take a look at my Github account"
               target="_blank"
               rel="noreferrer"
             >
