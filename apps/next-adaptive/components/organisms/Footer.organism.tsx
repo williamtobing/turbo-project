@@ -21,12 +21,30 @@ const Footer: React.FC = () => (
           </div>
 
           <div className="flex items-end space-x-2">
-            <NeuBox className={cn('border-portage shadow-neu-chalky-4')}>
-              <Icon.IcoLinkedinBox variant="fill" palette={palette.chalky} />
-            </NeuBox>
-            <NeuBox className={cn('border-portage shadow-neu-chalky-4')}>
-              <Icon.IcoGithub variant="fill" palette={palette.chalky} />
-            </NeuBox>
+            <a
+              href="https://www.linkedin.com/in/williamtobing/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <NeuBox
+                variant="sm"
+                className={cn('border-portage shadow-neu-chalky-4')}
+              >
+                <Icon.IcoLinkedinBox variant="fill" palette={palette.chalky} />
+              </NeuBox>
+            </a>
+            <a
+              href="https://github.com/williamtobing"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <NeuBox
+                variant="sm"
+                className={cn('border-portage shadow-neu-chalky-4')}
+              >
+                <Icon.IcoGithub variant="fill" palette={palette.chalky} />
+              </NeuBox>
+            </a>
           </div>
         </div>
       </div>

@@ -7,6 +7,7 @@ import IcoGlobal from './IcoGlobal';
 import IcoMacbook from './IcoMacbook';
 import IcoLinkedinBox from './IcoLinkedinBox';
 import IcoGithub from './IcoGithub';
+import IcoLayout5 from './IcoLayout5';
 
 const icons = {
   IcoReact,
@@ -18,6 +19,7 @@ const icons = {
   IcoMacbook,
   IcoLinkedinBox,
   IcoGithub,
+  IcoLayout5,
 };
 
 export default icons;

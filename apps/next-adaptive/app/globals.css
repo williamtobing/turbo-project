@@ -18,3 +18,11 @@
     @apply no-underline;
   }
 }
+
+/* SELECTION */
+::selection {
+  @apply bg-daisyBush text-pureWhite; /* WebKit/Blink Browsers */
+}
+::-moz-selection {
+  @apply bg-daisyBush text-pureWhite; /* Gecko Browsers */
+}
