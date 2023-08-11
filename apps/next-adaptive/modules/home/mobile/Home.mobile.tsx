@@ -15,7 +15,7 @@ const roleData = [
   },
   {
     role: 'UI Designer',
-    icon: <Icon.IcoPages className="h-5 w-5" variant="line" />,
+    icon: <Icon.IcoLayout5 className="h-5 w-5" variant="line" />,
   },
   {
     role: 'Web Designer',
@@ -74,7 +74,7 @@ export const Home: React.FC = () => (
     <div className="space-y-4 py-4">
       <div className="space-y-2 px-4">
         <div className="relative">
-          <NeuBox className="absolute right-0 cursor-pointer p-1">
+          <NeuBox variant="sm" className="absolute right-0 cursor-pointer p-1">
             <Icon.IcoSoundModule className="h-5 w-5" variant="fill" />
           </NeuBox>
 
@@ -87,7 +87,7 @@ export const Home: React.FC = () => (
 
         <div className="grid grid-cols-2 gap-2">
           {roleData.map((item, i) => (
-            <NeuBox key={i}>
+            <NeuBox key={i} variant="sm">
               <div className="flex">
                 <div className="bg-chalky border-bunker flex items-center justify-center border-r-2 p-1.5">
                   {item.icon}
@@ -109,10 +109,8 @@ export const Home: React.FC = () => (
         {timelineData.map((item, i) => (
           <NeuBox
             key={i}
-            className={cn(
-              'relative',
-              item.latest ? 'bg-dullLavender animate-pulse' : ''
-            )}
+            variant="md"
+            className={cn('relative', item.latest ? 'bg-dullLavender' : '')}
           >
             <div className="bg-chalky absolute right-0 mt-0.5 w-[4.75rem] px-2">
               <p className="text-right text-xs font-semibold">

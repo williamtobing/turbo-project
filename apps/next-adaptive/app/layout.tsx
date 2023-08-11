@@ -3,8 +3,12 @@ import { Plus_Jakarta_Sans } from 'next/font/google';
 import { palette } from '@/theme.config';
 import './globals.css';
 
-// TODO: complete the italic and bold variant
-const jakarta = Plus_Jakarta_Sans({ subsets: ['latin'] });
+const jakarta = Plus_Jakarta_Sans({
+  subsets: ['latin'],
+  weight: ['200', '300', '400', '500', '600', '700', '800'],
+  style: ['normal', 'italic'],
+  variable: '--font-plus-jakarta-sans',
+});
 
 export const metadata: Metadata = {
   title: 'William Suarez Lumbantobing',
@@ -24,7 +28,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={jakarta.className} suppressHydrationWarning={true}>
+      <body
+        className={`${jakarta.variable} font-sans`}
+        suppressHydrationWarning={true}
+      >
         {children}
       </body>
     </html>
