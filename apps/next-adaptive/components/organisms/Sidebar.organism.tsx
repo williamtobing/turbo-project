@@ -35,7 +35,7 @@ const Sidebar: React.FC<Props> = ({ isOpen, toggle }) => {
           isOpen ? 'right-0' : '-right-full'
         )}
       >
-        <ul className="space-y-8 pr-6 pt-10">
+        <ul className="space-y-8 pr-4 pt-4">
           {navOptions.map((item, i) => (
             <li key={i} className="text-right">
               <Link href={item.value} passHref>
