@@ -1,17 +1,18 @@
-import React, { ReactNode, ReactElement } from 'react';
+import React, { ReactNode } from 'react';
 import { cn } from '@/utils';
 
 type Props = {
   children: ReactNode;
   variant: 'sm' | 'md' | 'lg';
   className?: string;
-};
+} & React.HTMLProps<HTMLDivElement>;
 
 const NeuBox: React.FC<Props> = ({
   children,
   variant,
   className,
-}): ReactElement => (
+  ...props
+}) => (
   <>
     {variant === 'sm' && (
       <div
@@ -20,6 +21,7 @@ const NeuBox: React.FC<Props> = ({
           'bg-portage border-bunker shadow-neu-bunker-4',
           className
         )}
+        {...props}
       >
         {children}
       </div>
@@ -32,6 +34,7 @@ const NeuBox: React.FC<Props> = ({
           'bg-portage border-bunker shadow-neu-bunker-5',
           className
         )}
+        {...props}
       >
         {children}
       </div>
@@ -44,6 +47,7 @@ const NeuBox: React.FC<Props> = ({
           'bg-portage border-bunker shadow-neu-bunker-6',
           className
         )}
+        {...props}
       >
         {children}
       </div>
