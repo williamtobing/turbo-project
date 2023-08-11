@@ -77,7 +77,7 @@ export const Home: React.FC = () => {
     <React.Fragment>
       <Sidebar isOpen={isSidebarOpen} toggle={toggleSidebar} />
 
-      <div className="bg-myWhite mx-auto min-h-screen max-w-lg">
+      <div className="bg-myWhite mx-auto min-h-[100dvh] max-w-lg">
         <div className="space-y-4 py-4">
           <div className="space-y-2 px-4">
             <div className="relative">
