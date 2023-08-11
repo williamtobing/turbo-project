@@ -1,7 +1,8 @@
 import React from 'react';
 import { Icon } from '@/components/atoms';
 import { NeuBox } from '@/components/molecules';
-import { Footer } from '@/components/organisms';
+import { Footer, Sidebar } from '@/components/organisms';
+import { useToggle } from '@/hooks/useToggle';
 import { DateFormat, cn } from '@/utils';
 
 const roleData = [
@@ -69,82 +70,89 @@ const timelineData = [
   },
 ];
 
-export const Home: React.FC = () => (
-  <div className="bg-myWhite mx-auto min-h-screen max-w-lg">
-    <div className="space-y-4 py-4">
-      <div className="space-y-2 px-4">
-        <div className="relative">
-          <NeuBox
-            variant="sm"
-            className="absolute right-0 cursor-pointer p-1"
-            // TODO: handle this
-            aria-label="Main Menu"
-            onClick={() => undefined}
-            onKeyDown={() => undefined}
-            role="button"
-            tabIndex={0}
-          >
-            <Icon.IcoSoundModule className="h-5 w-5" variant="fill" />
-          </NeuBox>
+export const Home: React.FC = () => {
+  const [isSidebarOpen, toggleSidebar] = useToggle();
 
-          <p className="text-4xl font-bold">Hi there,</p>
-          <p className="text-5xl font-extrabold">
-            I am <span className="text-daisyBush">William</span>
-          </p>
-          <p className="text-2xl font-medium italic">Software Engineer</p>
-        </div>
+  return (
+    <React.Fragment>
+      <Sidebar isOpen={isSidebarOpen} toggle={toggleSidebar} />
 
-        <div className="grid grid-cols-2 gap-2">
-          {roleData.map((item, i) => (
-            <NeuBox key={i} variant="sm">
-              <div className="flex">
-                <div className="bg-chalky border-bunker flex items-center justify-center border-r-2 p-1.5">
-                  {item.icon}
-                </div>
-                <div className="mx-1.5 flex items-center overflow-hidden">
-                  <p className="whitespace-nowrap text-sm font-semibold">
-                    {item.role}
+      <div className="bg-myWhite mx-auto min-h-[100dvh] max-w-lg">
+        <div className="space-y-4 py-4">
+          <div className="space-y-2 px-4">
+            <div className="relative">
+              <NeuBox
+                variant="sm"
+                className="absolute right-0 cursor-pointer p-1"
+                role="button"
+                aria-label="Main Menu"
+                onClick={toggleSidebar}
+                onKeyDown={(e) => e.key === 'Enter' && toggleSidebar()}
+                tabIndex={0}
+              >
+                <Icon.IcoMenuUnfold className="h-5 w-5" variant="fill" />
+              </NeuBox>
+
+              <p className="text-4xl font-bold">Hi there,</p>
+              <p className="text-5xl font-extrabold">
+                I am <span className="text-daisyBush">William</span>
+              </p>
+              <p className="text-2xl font-medium italic">Software Engineer</p>
+            </div>
+
+            <div className="grid grid-cols-2 gap-2">
+              {roleData.map((item, i) => (
+                <NeuBox key={i} variant="sm">
+                  <div className="flex">
+                    <div className="bg-chalky border-bunker flex items-center justify-center border-r-2 p-1.5">
+                      {item.icon}
+                    </div>
+                    <div className="mx-1.5 flex items-center overflow-hidden">
+                      <p className="whitespace-nowrap text-sm font-semibold">
+                        {item.role}
+                      </p>
+                    </div>
+                  </div>
+                </NeuBox>
+              ))}
+            </div>
+          </div>
+
+          <div className="space-y-2 px-4">
+            <p className="text-2xl font-bold underline">Timeline</p>
+
+            {timelineData.map((item, i) => (
+              <NeuBox
+                key={i}
+                variant="md"
+                className={cn('relative', item.latest ? 'bg-dullLavender' : '')}
+              >
+                <div className="bg-chalky absolute right-0 mt-0.5 w-[4.75rem] rounded-l-md px-2">
+                  <p className="text-right text-xs font-semibold">
+                    {DateFormat(item.date).toShortMonth()}
                   </p>
                 </div>
-              </div>
-            </NeuBox>
-          ))}
+
+                <div className="p-3.5">
+                  <p className="text-myWhite font-bold">{item.description}</p>
+                </div>
+              </NeuBox>
+            ))}
+          </div>
+
+          <div className="space-y-2 px-4">
+            <p className="text-2xl font-bold underline">Recent projects</p>
+            <p className="animate-pulse italic">in progress&hellip;</p>
+          </div>
+
+          <div className="space-y-2 px-4">
+            <p className="text-2xl font-bold underline">Tech Stacks</p>
+            <p className="animate-pulse italic">in progress&hellip;</p>
+          </div>
         </div>
+
+        <Footer />
       </div>
-
-      <div className="space-y-2 px-4">
-        <p className="text-2xl font-bold underline">Timeline</p>
-
-        {timelineData.map((item, i) => (
-          <NeuBox
-            key={i}
-            variant="md"
-            className={cn('relative', item.latest ? 'bg-dullLavender' : '')}
-          >
-            <div className="bg-chalky absolute right-0 mt-0.5 w-[4.75rem] rounded-l-md px-2">
-              <p className="text-right text-xs font-semibold">
-                {DateFormat(item.date).toShortMonth()}
-              </p>
-            </div>
-
-            <div className="p-3.5">
-              <p className="text-myWhite font-bold">{item.description}</p>
-            </div>
-          </NeuBox>
-        ))}
-      </div>
-
-      <div className="space-y-2 px-4">
-        <p className="text-2xl font-bold underline">Recent projects</p>
-        <p className="animate-pulse italic">in progress&hellip;</p>
-      </div>
-
-      <div className="space-y-2 px-4">
-        <p className="text-2xl font-bold underline">Tech Stacks</p>
-        <p className="animate-pulse italic">in progress&hellip;</p>
-      </div>
-    </div>
-
-    <Footer />
-  </div>
-);
+    </React.Fragment>
+  );
+};

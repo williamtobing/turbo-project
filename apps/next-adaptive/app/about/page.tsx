@@ -1,5 +1,1 @@
-import React from 'react';
-
-const AboutPage = () => <div>AboutPage</div>;
-
-export default AboutPage;
+export { default } from '@/modules/about/About.page';

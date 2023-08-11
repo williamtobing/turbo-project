@@ -3,19 +3,19 @@
 import React, { useEffect, useState } from 'react';
 import { isBrowser, isMobile } from 'react-device-detect';
 import { PageLoader } from '@/components/organisms';
-import { Home as HomeBrowser } from './browser/Home.browser';
-import { Home as HomeMobile } from './mobile/Home.mobile';
+import { About as AboutBrowser } from './browser/About.browser';
+import { About as AboutMobile } from './mobile/About.mobile';
 
 // TODO: add global wrapper to handle user agent
-const HomePage: React.FC = () => {
+const AboutPage: React.FC = () => {
   const [isWindowLoading, setIsWindowLoading] = useState(true);
 
   useEffect(() => setIsWindowLoading(false), []);
 
   if (isWindowLoading) return <PageLoader />;
 
-  if (isBrowser) return <HomeBrowser />;
-  if (isMobile) return <HomeMobile />;
+  if (isBrowser) return <AboutBrowser />;
+  if (isMobile) return <AboutMobile />;
 
   return (
     <div className="flex h-[100dvh] items-center justify-center">
@@ -24,4 +24,4 @@ const HomePage: React.FC = () => {
   );
 };
 
-export default HomePage;
+export default AboutPage;

@@ -7,7 +7,7 @@ import { cn } from '@/utils';
 const Footer: React.FC = () => (
   <>
     <div className="bg-darkGunmetal">
-      <div className="space-y-2 p-5">
+      <div className="space-y-2 p-4">
         <p className="text-myWhite text-xs font-semibold">
           This website is a site that I developed myself for personal
           publication purposes. Thank you for visiting my website. May we all be
