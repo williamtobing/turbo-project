@@ -2,7 +2,6 @@ import React from 'react';
 import { Icon } from '@/components/atoms';
 import { NeuBox } from '@/components/molecules';
 import { palette } from '@/theme.config';
-import { cn } from '@/utils';
 
 const Footer: React.FC = () => (
   <>
@@ -29,7 +28,7 @@ const Footer: React.FC = () => (
             >
               <NeuBox
                 variant="sm"
-                className={cn('border-portage shadow-neu-chalky-4')}
+                className="border-portage shadow-neu-chalky-4"
               >
                 <Icon.IcoLinkedinBox variant="fill" palette={palette.chalky} />
               </NeuBox>
@@ -42,7 +41,7 @@ const Footer: React.FC = () => (
             >
               <NeuBox
                 variant="sm"
-                className={cn('border-portage shadow-neu-chalky-4')}
+                className="border-portage shadow-neu-chalky-4"
               >
                 <Icon.IcoGithub variant="fill" palette={palette.chalky} />
               </NeuBox>

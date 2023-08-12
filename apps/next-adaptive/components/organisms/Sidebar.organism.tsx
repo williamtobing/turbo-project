@@ -16,6 +16,7 @@ const navOptions = [
 
 const Sidebar: React.FC<Props> = ({ isOpen, toggle }) => {
   const [path, setPath] = useState('');
+
   useEffect(() => setPath(location.pathname), []);
 
   return (

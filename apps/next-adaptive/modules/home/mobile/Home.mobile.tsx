@@ -1,5 +1,7 @@
-import React from 'react';
-import { Icon } from '@/components/atoms';
+import React, { useState } from 'react';
+import Ticker from 'react-ticker';
+import PageVisibility from 'react-page-visibility';
+import { Icon, Logo } from '@/components/atoms';
 import { NeuBox } from '@/components/molecules';
 import { Footer, Sidebar } from '@/components/organisms';
 import { useToggle } from '@/hooks/useToggle';
@@ -21,6 +23,40 @@ const roleData = [
   {
     role: 'Web Designer',
     icon: <Icon.IcoMacbook className="h-5 w-5" variant="line" />,
+  },
+];
+
+export const projectData = [
+  {
+    bgColor: 'bg-pureWhite',
+    logo: <Logo.JuraganMaterial className="h-20 w-20" />,
+  },
+  {
+    bgColor: 'bg-kuponBlue',
+    logo: <Logo.PintapKupon />,
+  },
+  {
+    bgColor: 'bg-retailBlue',
+    logo: <Logo.PintapRetail className="mt-1.5" />,
+  },
+  {
+    bgColor: 'bg-mitraWhite',
+    logo: <Logo.PintapMitra />,
+  },
+  {
+    bgColor: 'bg-white',
+    logo: <Logo.XLAxiata />,
+  },
+  {
+    bgColor: 'bg-axiataBlue',
+    logo: (
+      <div className="">
+        <Logo.XLAxiata reverse />
+        <p className="text-pureWhite float-right -mt-0.5 text-[0.45rem]">
+          business solution
+        </p>
+      </div>
+    ),
   },
 ];
 
@@ -72,6 +108,11 @@ const timelineData = [
 
 export const Home: React.FC = () => {
   const [isSidebarOpen, toggleSidebar] = useToggle();
+  const [pageIsVisible, setPageIsVisible] = useState(true);
+
+  const handleVisibilityChange = (isVisible: boolean) => {
+    setPageIsVisible(isVisible);
+  };
 
   return (
     <React.Fragment>
@@ -119,6 +160,36 @@ export const Home: React.FC = () => {
           </div>
 
           <div className="space-y-2 px-4">
+            <p className="text-2xl font-bold underline">Recent projects</p>
+
+            {/* // TODO: add running content wrapper in molecule */}
+            <PageVisibility onChange={handleVisibilityChange}>
+              {pageIsVisible && (
+                <Ticker mode="chain" speed={5}>
+                  {() => (
+                    <>
+                      <div className="mx-1 mb-2 flex space-x-2">
+                        {projectData.map((item, i) => (
+                          <NeuBox
+                            key={i}
+                            className={cn(
+                              'flex h-[6.25rem] w-[6.25rem] items-center justify-center',
+                              item.bgColor
+                            )}
+                            variant="md"
+                          >
+                            {item.logo}
+                          </NeuBox>
+                        ))}
+                      </div>
+                    </>
+                  )}
+                </Ticker>
+              )}
+            </PageVisibility>
+          </div>
+
+          <div className="space-y-2 px-4">
             <p className="text-2xl font-bold underline">Timeline</p>
 
             {timelineData.map((item, i) => (
@@ -138,11 +209,6 @@ export const Home: React.FC = () => {
                 </div>
               </NeuBox>
             ))}
-          </div>
-
-          <div className="space-y-2 px-4">
-            <p className="text-2xl font-bold underline">Recent projects</p>
-            <p className="animate-pulse italic">in progress&hellip;</p>
           </div>
 
           <div className="space-y-2 px-4">

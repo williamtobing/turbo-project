@@ -18,6 +18,8 @@ export const palette = {
   skyBlue: '#87CBE8',
 
   /* external */
+  jmGreen: '#006664',
+  jmYellow: '#F9B023',
   kuponBlue: '#64B0F4',
   retailBlue: '#2A3588',
   mitraWhite: '#FFFAFB',
