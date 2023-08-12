@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
+import Image from 'next/image';
 import Ticker from 'react-ticker';
 import PageVisibility from 'react-page-visibility';
+import { Splide, SplideSlide } from '@splidejs/react-splide';
 import { Icon, Logo } from '@/components/atoms';
 import { NeuBox } from '@/components/molecules';
 import { Footer, Sidebar } from '@/components/organisms';
 import { useToggle } from '@/hooks/useToggle';
 import { DateFormat, cn } from '@/utils';
+import '@splidejs/react-splide/css/core';
 
 const roleData = [
   {
@@ -28,27 +31,27 @@ const roleData = [
 
 export const projectData = [
   {
-    bgColor: 'bg-pureWhite',
+    bgColor: cn('bg-pureWhite'),
     logo: <Logo.JuraganMaterial className="h-20 w-20" />,
   },
   {
-    bgColor: 'bg-kuponBlue',
+    bgColor: cn('bg-kuponBlue'),
     logo: <Logo.PintapKupon />,
   },
   {
-    bgColor: 'bg-retailBlue',
+    bgColor: cn('bg-retailBlue'),
     logo: <Logo.PintapRetail className="mt-1.5" />,
   },
   {
-    bgColor: 'bg-mitraWhite',
+    bgColor: cn('bg-mitraWhite'),
     logo: <Logo.PintapMitra />,
   },
   {
-    bgColor: 'bg-white',
+    bgColor: cn('bg-pureWhite'),
     logo: <Logo.XLAxiata />,
   },
   {
-    bgColor: 'bg-axiataBlue',
+    bgColor: cn('bg-axiataBlue'),
     logo: (
       <div className="">
         <Logo.XLAxiata reverse />
@@ -103,6 +106,69 @@ const timelineData = [
     description: 'Start College',
     date: new Date('2017-08'),
     progress: 1,
+  },
+];
+
+const imgUrl = 'https://res.cloudinary.com/dox0nkwax/image/upload';
+
+export const techStackData = [
+  {
+    neuStyle: cn('hover:bg-nextBlack'),
+    textStyle: cn('hover:text-pureWhite hover:bg-nextBlack'),
+    contentBoxStyle: cn('hover:scale-[1.75]'),
+    source: `${imgUrl}/v1636001626/logo/stack%20logo/next-js_felzgo.webp`,
+    text: 'Next.js',
+    link: 'https://nextjs.org/',
+  },
+  {
+    neuStyle: cn('hover:bg-reactBlue'),
+    textStyle: cn('hover:text-pureWhite hover:bg-reactBlue'),
+    imgStyle: cn('animate-[spin_100s_linear_infinite]'),
+    contentBoxStyle: cn('hover:scale-[1.5]'),
+    source: `${imgUrl}/v1636000856/logo/stack%20logo/react_ura0hq.webp`,
+    text: 'React.js',
+    link: 'https://reactjs.org/',
+  },
+  {
+    neuStyle: cn('hover:bg-typescriptBlue'),
+    textStyle: cn('hover:text-pureWhite hover:bg-typescriptBlue'),
+    contentBoxStyle: cn('hover:scale-[1.2]'),
+    source: `${imgUrl}/v1636000856/logo/stack%20logo/typescript_ho8aqd.png`,
+    text: 'TypeScript',
+    link: 'https://www.typescriptlang.org/',
+  },
+  {
+    neuStyle: cn('hover:bg-tailwindBlue'),
+    textStyle: cn('hover:text-pureWhite hover:bg-tailwindBlue'),
+    contentBoxStyle: cn('hover:scale-[1.4]'),
+    source: `${imgUrl}/v1636000856/logo/stack%20logo/tailwindcss_csi3ob.png`,
+    text: 'Tailwind CSS',
+    link: 'https://tailwindcss.com/',
+  },
+  {
+    neuStyle: cn('hover:bg-vueGreen'),
+    textStyle: cn('hover:text-pureWhite hover:bg-vueGreen'),
+    contentBoxStyle: cn('hover:scale-[1.75]'),
+    source: `${imgUrl}/v1636027581/logo/stack%20logo/vue_kedlql.webp`,
+    text: 'Vue.js',
+    link: 'https://vuejs.org/',
+  },
+  {
+    neuStyle: cn('hover:bg-laravelOrange'),
+    textStyle: cn('hover:text-pureWhite hover:bg-laravelOrange'),
+    contentBoxStyle: cn('hover:scale-[1.5]'),
+    source: `${imgUrl}/v1636027266/logo/stack%20logo/laravel_lmyz5m.webp`,
+    text: 'Laravel',
+    link: 'https://laravel.com/',
+  },
+  {
+    neuStyle: cn('hover:bg-javascriptYellow'),
+    textStyle: cn('hover:textWhite hover:bg-javascriptYellow'),
+    imgStyle: cn('rounded-lg'),
+    contentBoxStyle: cn('hover:scale-[1.25]'),
+    source: `${imgUrl}/v1671704699/logo/stack%20logo/javascript_xpeqpo.webp`,
+    text: 'JavaScript',
+    link: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript',
   },
 ];
 
@@ -168,7 +234,7 @@ export const Home: React.FC = () => {
                 <Ticker mode="chain" speed={5}>
                   {() => (
                     <>
-                      <div className="mx-1 mb-2 flex space-x-2">
+                      <div className="mx-1 mb-1.5 flex space-x-2">
                         {projectData.map((item, i) => (
                           <NeuBox
                             key={i}
@@ -213,7 +279,43 @@ export const Home: React.FC = () => {
 
           <div className="space-y-2 px-4">
             <p className="text-2xl font-bold underline">Tech Stacks</p>
-            <p className="animate-pulse italic">in progress&hellip;</p>
+
+            <Splide
+              tag="div"
+              options={{
+                perPage: 1,
+                perMove: 1,
+                interval: 5000,
+                rewind: true,
+                autoplay: false,
+                arrows: false,
+                autoWidth: true,
+                pauseOnHover: false,
+                type: 'loop',
+                gap: '0.5rem',
+              }}
+            >
+              {techStackData.map((item, i) => (
+                <SplideSlide key={i} className="pb-1.5">
+                  <NeuBox
+                    variant="md"
+                    className="flex h-40 w-[7.5rem] items-center justify-center overflow-hidden rounded-lg bg-white duration-1000 ease-out"
+                  >
+                    <div className="relative mt-[0.563rem] duration-1000 ease-out">
+                      <Image
+                        src={item.source}
+                        alt={`${item.text} Logo`}
+                        width={100}
+                        height={100}
+                        className={item.imgStyle}
+                        priority
+                      />
+                      <p className="text-center font-bold">{item.text}</p>
+                    </div>
+                  </NeuBox>
+                </SplideSlide>
+              ))}
+            </Splide>
           </div>
         </div>
 
