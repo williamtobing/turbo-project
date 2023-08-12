@@ -12,11 +12,11 @@ type Props = {
 const navOptions = [
   { label: 'Home', value: '/' },
   { label: 'About', value: '/about' },
-  { label: 'Contact', value: 'mailto:william.sl.tobing@gmail.com' },
 ];
 
 const Sidebar: React.FC<Props> = ({ isOpen, toggle }) => {
   const [path, setPath] = useState('');
+
   useEffect(() => setPath(location.pathname), []);
 
   return (
@@ -31,11 +31,12 @@ const Sidebar: React.FC<Props> = ({ isOpen, toggle }) => {
 
       <nav
         className={cn(
-          'bg-portage border-bunker fixed z-20 h-full w-4/5 max-w-lg border-l-4 duration-500 ease-out',
+          'bg-portage border-bunker',
+          'fixed z-20 h-full w-4/5 max-w-lg border-l-4 duration-500 ease-out',
           isOpen ? 'right-0' : '-right-full'
         )}
       >
-        <ul className="space-y-8 pr-4 pt-4">
+        <ul className="space-y-8 pr-8 pt-8">
           {navOptions.map((item, i) => (
             <li key={i} className="text-right">
               <Link href={item.value} passHref>

@@ -2,7 +2,6 @@ import React from 'react';
 import { Icon } from '@/components/atoms';
 import { NeuBox } from '@/components/molecules';
 import { palette } from '@/theme.config';
-import { cn } from '@/utils';
 
 const Footer: React.FC = () => (
   <>
@@ -29,20 +28,20 @@ const Footer: React.FC = () => (
             >
               <NeuBox
                 variant="sm"
-                className={cn('border-portage shadow-neu-chalky-4')}
+                className="border-portage shadow-neu-chalky-4"
               >
                 <Icon.IcoLinkedinBox variant="fill" palette={palette.chalky} />
               </NeuBox>
             </a>
             <a
               href="https://github.com/williamtobing"
-              aria-label="Take a look at my Github account"
+              aria-label="Take a look at my GitHub account"
               target="_blank"
               rel="noreferrer"
             >
               <NeuBox
                 variant="sm"
-                className={cn('border-portage shadow-neu-chalky-4')}
+                className="border-portage shadow-neu-chalky-4"
               >
                 <Icon.IcoGithub variant="fill" palette={palette.chalky} />
               </NeuBox>
@@ -51,9 +50,20 @@ const Footer: React.FC = () => (
         </div>
       </div>
 
-      <div className="bg-bunker flex items-center justify-center">
-        <p className="text-myWhite py-2 text-center text-xs font-semibold">
-          Copyright © 2023 | William Suarez Lumbantobing
+      <div className="bg-bunker flex items-center justify-center px-4">
+        <p className="text-myWhite py-2 text-center text-xs font-semibold italic">
+          Built by{' '}
+          <span className="text-portage">William Suarez Lumbantobing</span>. The
+          source code is available on{' '}
+          <a
+            href="https://github.com/williamtobing/turbo-project"
+            className="text-chalky underline"
+            aria-label="Take a look at the code on GitHub"
+            target="_blank"
+            rel="noreferrer"
+          >
+            GitHub
+          </a>
         </p>
       </div>
     </div>
