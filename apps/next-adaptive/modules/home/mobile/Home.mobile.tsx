@@ -36,7 +36,12 @@ export const projectData = [
   },
   {
     bgColor: cn('bg-kuponBlue'),
-    logo: <Logo.PintapKupon />,
+    logo: (
+      <div className="mt-1">
+        <Logo.PintapKupon className="h-12 w-12" />
+        <p className="text-pureWhite text-center text-xs font-bold">KUPON</p>
+      </div>
+    ),
   },
   {
     bgColor: cn('bg-retailBlue'),
@@ -53,7 +58,7 @@ export const projectData = [
   {
     bgColor: cn('bg-axiataBlue'),
     logo: (
-      <div className="">
+      <div>
         <Logo.XLAxiata reverse />
         <p className="text-pureWhite float-right -mt-0.5 text-[0.45rem]">
           business solution
@@ -184,9 +189,9 @@ export const Home: React.FC = () => {
     <React.Fragment>
       <Sidebar isOpen={isSidebarOpen} toggle={toggleSidebar} />
 
-      <div className="bg-myWhite mx-auto min-h-[100dvh] max-w-lg">
+      <main className="bg-myWhite mx-auto min-h-[100dvh] max-w-lg">
         <div className="space-y-4 py-4">
-          <div className="space-y-2 px-4">
+          <header className="space-y-2 px-4">
             <div className="relative">
               <NeuBox
                 variant="sm"
@@ -200,11 +205,17 @@ export const Home: React.FC = () => {
                 <Icon.IcoMenuUnfold className="h-5 w-5" variant="fill" />
               </NeuBox>
 
-              <p className="text-4xl font-bold">Hi there,</p>
-              <p className="text-5xl font-extrabold">
-                I am <span className="text-daisyBush">William</span>
-              </p>
-              <p className="text-2xl font-medium italic">Software Engineer</p>
+              <h1>
+                <span className="text-4xl font-bold">Hi there,</span>
+                <br />
+                <span className="text-5xl font-extrabold">
+                  I am <span className="text-daisyBush">William</span>
+                </span>
+                <br />
+                <span className="text-2xl font-medium italic">
+                  a Software Engineer
+                </span>
+              </h1>
             </div>
 
             <div className="grid grid-cols-2 gap-2">
@@ -223,11 +234,11 @@ export const Home: React.FC = () => {
                 </NeuBox>
               ))}
             </div>
-          </div>
+          </header>
 
           {/* Recent projects */}
-          <div className="space-y-2 px-4">
-            <p className="text-2xl font-bold underline">Recent projects</p>
+          <section className="space-y-2 px-4">
+            <h2 className="text-2xl font-bold underline">Recent projects</h2>
 
             {/* // TODO: add running content wrapper in molecule */}
             <PageVisibility onChange={handleVisibilityChange}>
@@ -254,11 +265,11 @@ export const Home: React.FC = () => {
                 </Ticker>
               )}
             </PageVisibility>
-          </div>
+          </section>
 
           {/* Timeline */}
-          <div className="space-y-2 px-4">
-            <p className="text-2xl font-bold underline">Timeline</p>
+          <section className="space-y-2 px-4">
+            <h2 className="text-2xl font-bold underline">Timeline</h2>
 
             {timelineData.map((item, i) => (
               <NeuBox
@@ -277,11 +288,11 @@ export const Home: React.FC = () => {
                 </div>
               </NeuBox>
             ))}
-          </div>
+          </section>
 
           {/* Tech Stacks */}
-          <div className="space-y-2 px-4">
-            <p className="text-2xl font-bold underline">Tech Stacks</p>
+          <section className="space-y-2 px-4">
+            <h2 className="text-2xl font-bold underline">Tech Stacks</h2>
 
             <div className="min-[425px]:hidden">
               <Splide
@@ -353,11 +364,11 @@ export const Home: React.FC = () => {
                 ))}
               </Splide>
             </div>
-          </div>
+          </section>
         </div>
 
         <Footer />
-      </div>
+      </main>
     </React.Fragment>
   );
 };
