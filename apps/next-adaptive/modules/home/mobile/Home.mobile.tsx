@@ -36,7 +36,12 @@ export const projectData = [
   },
   {
     bgColor: cn('bg-kuponBlue'),
-    logo: <Logo.PintapKupon />,
+    logo: (
+      <div className="mt-1">
+        <Logo.PintapKupon className="h-12 w-12" />
+        <p className="text-pureWhite text-center text-xs font-bold">KUPON</p>
+      </div>
+    ),
   },
   {
     bgColor: cn('bg-retailBlue'),
@@ -53,7 +58,7 @@ export const projectData = [
   {
     bgColor: cn('bg-axiataBlue'),
     logo: (
-      <div className="">
+      <div>
         <Logo.XLAxiata reverse />
         <p className="text-pureWhite float-right -mt-0.5 text-[0.45rem]">
           business solution
@@ -184,9 +189,9 @@ export const Home: React.FC = () => {
     <React.Fragment>
       <Sidebar isOpen={isSidebarOpen} toggle={toggleSidebar} />
 
-      <div className="bg-myWhite mx-auto min-h-[100dvh] max-w-lg">
+      <main className="bg-myWhite mx-auto min-h-[100dvh] max-w-lg">
         <div className="space-y-4 py-4">
-          <div className="space-y-2 px-4">
+          <header className="space-y-2 px-4">
             <div className="relative">
               <NeuBox
                 variant="sm"
@@ -200,11 +205,17 @@ export const Home: React.FC = () => {
                 <Icon.IcoMenuUnfold className="h-5 w-5" variant="fill" />
               </NeuBox>
 
-              <p className="text-4xl font-bold">Hi there,</p>
-              <p className="text-5xl font-extrabold">
-                I am <span className="text-daisyBush">William</span>
-              </p>
-              <p className="text-2xl font-medium italic">Software Engineer</p>
+              <h1>
+                <span className="text-4xl font-bold">Hi there,</span>
+                <br />
+                <span className="text-5xl font-extrabold">
+                  I am <span className="text-daisyBush">William</span>
+                </span>
+                <br />
+                <span className="text-2xl font-medium italic">
+                  a Software Engineer
+                </span>
+              </h1>
             </div>
 
             <div className="grid grid-cols-2 gap-2">
@@ -223,10 +234,11 @@ export const Home: React.FC = () => {
                 </NeuBox>
               ))}
             </div>
-          </div>
+          </header>
 
-          <div className="space-y-2 px-4">
-            <p className="text-2xl font-bold underline">Recent projects</p>
+          {/* Recent projects */}
+          <section className="space-y-2 px-4">
+            <h2 className="text-2xl font-bold underline">Recent projects</h2>
 
             {/* // TODO: add running content wrapper in molecule */}
             <PageVisibility onChange={handleVisibilityChange}>
@@ -253,10 +265,11 @@ export const Home: React.FC = () => {
                 </Ticker>
               )}
             </PageVisibility>
-          </div>
+          </section>
 
-          <div className="space-y-2 px-4">
-            <p className="text-2xl font-bold underline">Timeline</p>
+          {/* Timeline */}
+          <section className="space-y-2 px-4">
+            <h2 className="text-2xl font-bold underline">Timeline</h2>
 
             {timelineData.map((item, i) => (
               <NeuBox
@@ -275,48 +288,87 @@ export const Home: React.FC = () => {
                 </div>
               </NeuBox>
             ))}
-          </div>
+          </section>
 
-          <div className="space-y-2 px-4">
-            <p className="text-2xl font-bold underline">Tech Stacks</p>
+          {/* Tech Stacks */}
+          <section className="space-y-2 px-4">
+            <h2 className="text-2xl font-bold underline">Tech Stacks</h2>
 
-            <Splide
-              tag="div"
-              options={{
-                perPage: 3,
-                perMove: 1,
-                arrows: false,
-                gap: '0.5rem',
-              }}
-            >
-              {techStackData.map((item, i) => (
-                <SplideSlide key={i} className="pb-1.5 pr-1.5">
-                  <NeuBox
-                    variant="md"
-                    className="flex h-40 w-full items-center justify-center overflow-hidden rounded-lg bg-white duration-1000 ease-out"
-                  >
-                    <div className="relative mt-[0.563rem] space-y-2 px-2 duration-1000 ease-out">
-                      <Image
-                        src={item.source}
-                        alt={`${item.text} Logo`}
-                        width={100}
-                        height={100}
-                        className={item.imgStyle}
-                        priority
-                      />
-                      <p className="text-center text-sm font-bold">
-                        {item.text}
-                      </p>
-                    </div>
-                  </NeuBox>
-                </SplideSlide>
-              ))}
-            </Splide>
-          </div>
+            <div className="min-[425px]:hidden">
+              <Splide
+                tag="div"
+                options={{
+                  perPage: 3,
+                  perMove: 1,
+                  arrows: false,
+                  gap: '0.25rem',
+                }}
+              >
+                {techStackData.map((item, i) => (
+                  <SplideSlide key={i} className="pb-1.5 pr-1.5">
+                    <NeuBox
+                      variant="md"
+                      className="flex h-40 w-full items-center justify-center overflow-hidden rounded-lg bg-white duration-1000 ease-out"
+                    >
+                      <div className="relative mt-[0.563rem] space-y-2 px-2 duration-1000 ease-out">
+                        <Image
+                          src={item.source}
+                          alt={`${item.text} Logo`}
+                          width={100}
+                          height={100}
+                          className={item.imgStyle}
+                          priority
+                        />
+                        <p className="text-center text-sm font-bold">
+                          {item.text}
+                        </p>
+                      </div>
+                    </NeuBox>
+                  </SplideSlide>
+                ))}
+              </Splide>
+            </div>
+
+            <div className="hidden min-[425px]:block">
+              <Splide
+                tag="div"
+                options={{
+                  perPage: 1,
+                  perMove: 1,
+                  arrows: false,
+                  autoWidth: true,
+                  gap: '0.25rem',
+                }}
+              >
+                {techStackData.map((item, i) => (
+                  <SplideSlide key={i} className="pb-1.5 pr-1.5">
+                    <NeuBox
+                      variant="md"
+                      className="flex h-40 w-full items-center justify-center overflow-hidden rounded-lg bg-white duration-1000 ease-out"
+                    >
+                      <div className="relative mt-[0.563rem] space-y-2 px-2 duration-1000 ease-out">
+                        <Image
+                          src={item.source}
+                          alt={`${item.text} Logo`}
+                          width={100}
+                          height={100}
+                          className={item.imgStyle}
+                          priority
+                        />
+                        <p className="text-center text-sm font-bold">
+                          {item.text}
+                        </p>
+                      </div>
+                    </NeuBox>
+                  </SplideSlide>
+                ))}
+              </Splide>
+            </div>
+          </section>
         </div>
 
         <Footer />
-      </div>
+      </main>
     </React.Fragment>
   );
 };
