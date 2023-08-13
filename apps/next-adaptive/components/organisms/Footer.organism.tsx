@@ -16,7 +16,7 @@ const Footer: React.FC = () => (
         <div className="flex justify-between">
           <div className="space-y-2">
             <p className="text-myWhite text-xs font-semibold">Best regards,</p>
-            <p className="text-myWhite text-xs font-semibold">William S L</p>
+            <p className="text-myWhite text-xs font-semibold">William</p>
           </div>
 
           <div className="flex items-end space-x-2">

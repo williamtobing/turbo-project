@@ -154,14 +154,6 @@ export const techStackData = [
     link: 'https://vuejs.org/',
   },
   {
-    neuStyle: cn('hover:bg-laravelOrange'),
-    textStyle: cn('hover:text-pureWhite hover:bg-laravelOrange'),
-    contentBoxStyle: cn('hover:scale-[1.5]'),
-    source: `${imgUrl}/v1636027266/logo/stack%20logo/laravel_lmyz5m.webp`,
-    text: 'Laravel',
-    link: 'https://laravel.com/',
-  },
-  {
     neuStyle: cn('hover:bg-javascriptYellow'),
     textStyle: cn('hover:textWhite hover:bg-javascriptYellow'),
     imgStyle: cn('rounded-lg'),
@@ -169,6 +161,14 @@ export const techStackData = [
     source: `${imgUrl}/v1671704699/logo/stack%20logo/javascript_xpeqpo.webp`,
     text: 'JavaScript',
     link: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript',
+  },
+  {
+    neuStyle: cn('hover:bg-laravelOrange'),
+    textStyle: cn('hover:text-pureWhite hover:bg-laravelOrange'),
+    contentBoxStyle: cn('hover:scale-[1.5]'),
+    source: `${imgUrl}/v1636027266/logo/stack%20logo/laravel_lmyz5m.webp`,
+    text: 'Laravel',
+    link: 'https://laravel.com/',
   },
 ];
 
@@ -283,25 +283,19 @@ export const Home: React.FC = () => {
             <Splide
               tag="div"
               options={{
-                perPage: 1,
+                perPage: 3,
                 perMove: 1,
-                interval: 5000,
-                rewind: true,
-                autoplay: false,
                 arrows: false,
-                autoWidth: true,
-                pauseOnHover: false,
-                type: 'loop',
                 gap: '0.5rem',
               }}
             >
               {techStackData.map((item, i) => (
-                <SplideSlide key={i} className="pb-1.5">
+                <SplideSlide key={i} className="pb-1.5 pr-1.5">
                   <NeuBox
                     variant="md"
-                    className="flex h-40 w-[7.5rem] items-center justify-center overflow-hidden rounded-lg bg-white duration-1000 ease-out"
+                    className="flex h-40 w-full items-center justify-center overflow-hidden rounded-lg bg-white duration-1000 ease-out"
                   >
-                    <div className="relative mt-[0.563rem] duration-1000 ease-out">
+                    <div className="relative mt-[0.563rem] space-y-2 px-2 duration-1000 ease-out">
                       <Image
                         src={item.source}
                         alt={`${item.text} Logo`}
@@ -310,7 +304,9 @@ export const Home: React.FC = () => {
                         className={item.imgStyle}
                         priority
                       />
-                      <p className="text-center font-bold">{item.text}</p>
+                      <p className="text-center text-sm font-bold">
+                        {item.text}
+                      </p>
                     </div>
                   </NeuBox>
                 </SplideSlide>
