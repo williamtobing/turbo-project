@@ -31,4 +31,6 @@ export const palette = {
   laravelOrange: '#F9322C',
   tailwindBlue: '#0EA4E8',
   vueGreen: '#43B882',
+  vsCodeBlue: '#007ACC',
+  spotifyGreen: '#1DB954',
 };

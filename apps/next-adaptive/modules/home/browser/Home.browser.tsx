@@ -287,8 +287,8 @@ export const Home: React.FC = () => {
                     <div className="bg-dullLavender/0 flex h-6 w-6 items-center justify-center rounded-full">
                       <div className="bg-chalky h-1 w-1 animate-pulse rounded-full"></div>
                     </div>
-                    <div className="bg-mirage flex h-6 w-6 items-center justify-center rounded-full">
-                      <div className="bg-darkGunmetal h-4 w-4 rounded-full"></div>
+                    <div className="bg-darkGunmetal flex h-6 w-6 items-center justify-center rounded-full">
+                      <div className="bg-brightGray/50 h-4 w-4 rounded-full"></div>
                     </div>
                   </div>
                 </div>
@@ -406,6 +406,21 @@ export const Home: React.FC = () => {
                       </Ticker>
                     )}
                   </PageVisibility>
+                </div>
+
+                {/* Tools */}
+                <div className="space-y-3">
+                  <h2 className="text-[1.75rem] font-bold underline">Tools</h2>
+
+                  <div className="flex space-x-2">
+                    <NeuBox className="bg-pureWhite p-2" variant="sm">
+                      <Logo.VSCode className="text-vsCodeBlue h-6 w-6" />
+                    </NeuBox>
+
+                    <NeuBox className="bg-pureWhite p-2" variant="sm">
+                      <Logo.Spotify className="h-6 w-6" />
+                    </NeuBox>
+                  </div>
                 </div>
               </div>
             </div>
