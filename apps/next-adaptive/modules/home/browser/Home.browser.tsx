@@ -316,7 +316,9 @@ export const Home: React.FC = () => {
                 </div>
 
                 <div className="flex justify-center">
-                  <Illustration.Vector197 className="h-auto w-full" />
+                  <div className="flex max-w-xl justify-center">
+                    <Illustration.Vector197 className="h-auto w-full" />
+                  </div>
                 </div>
 
                 {/* Tech Stacks */}
@@ -409,7 +411,7 @@ export const Home: React.FC = () => {
                 </div>
 
                 {/* Tools */}
-                <div className="space-y-3">
+                <div className="space-y-3 pt-3">
                   <h2 className="text-[1.75rem] font-bold underline">Tools</h2>
 
                   <div className="flex space-x-2">
