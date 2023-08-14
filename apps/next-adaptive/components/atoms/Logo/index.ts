@@ -5,6 +5,8 @@ import PintapMitra from './PintapMitra';
 import XLAxiata from './XLAxiata';
 import TheLogoOne from './TheLogoOne';
 import TheLogoTwo from './TheLogoTwo';
+import VSCode from './VSCode';
+import Spotify from './Spotify';
 
 const logos = {
   JuraganMaterial,
@@ -14,6 +16,8 @@ const logos = {
   XLAxiata,
   TheLogoOne,
   TheLogoTwo,
+  VSCode,
+  Spotify,
 };
 
 export default logos;

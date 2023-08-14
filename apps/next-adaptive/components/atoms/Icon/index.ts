@@ -10,6 +10,7 @@ import IcoGithub from './IcoGithub';
 import IcoLayout5 from './IcoLayout5';
 import IcoMenuFold from './IcoMenuFold';
 import IcoMenuUnfold from './IcoMenuUnfold';
+import IcoSpotify from './IcoSpotify';
 
 const icons = {
   IcoReact,
@@ -24,6 +25,7 @@ const icons = {
   IcoLayout5,
   IcoMenuFold,
   IcoMenuUnfold,
+  IcoSpotify,
 };
 
 export default icons;
