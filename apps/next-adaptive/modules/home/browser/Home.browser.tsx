@@ -431,31 +431,26 @@ export const Home: React.FC = () => {
             <h2 className="text-3xl font-bold underline">Timeline</h2>
 
             <div className="grid grid-cols-2 gap-6">
-              {timelineData
-                .slice()
-                .reverse()
-                .map((item, i) => (
-                  <NeuBox
-                    key={i}
-                    variant="xl"
-                    className={cn(
-                      'relative',
-                      item.latest ? 'bg-dullLavender' : ''
-                    )}
-                  >
-                    <div className="bg-chalky absolute right-0 mt-0.5 w-[4.75rem] rounded-l-md px-2">
-                      <p className="text-right text-xs font-semibold">
-                        {DateFormat(item.date).toShortMonth()}
-                      </p>
-                    </div>
+              {timelineData.map((item, i) => (
+                <NeuBox
+                  key={i}
+                  variant="xl"
+                  className={cn(
+                    'relative',
+                    item.latest ? 'bg-dullLavender' : ''
+                  )}
+                >
+                  <div className="bg-chalky absolute right-0 mt-0.5 w-[4.75rem] rounded-l-md px-2">
+                    <p className="text-right text-xs font-semibold">
+                      {DateFormat(item.date).toShortMonth()}
+                    </p>
+                  </div>
 
-                    <div className="p-3.5">
-                      <p className="text-myWhite font-bold">
-                        {item.description}
-                      </p>
-                    </div>
-                  </NeuBox>
-                ))}
+                  <div className="p-3.5">
+                    <p className="text-myWhite font-bold">{item.description}</p>
+                  </div>
+                </NeuBox>
+              ))}
             </div>
           </section>
         </div>
