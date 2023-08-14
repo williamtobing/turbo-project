@@ -3,7 +3,7 @@ import { cn } from '@/utils';
 
 type Props = {
   children: ReactNode;
-  variant: 'sm' | 'md' | 'lg';
+  variant: 'sm' | 'md' | 'lg' | 'xl';
   className?: string;
 } & React.HTMLProps<HTMLDivElement>;
 
@@ -44,6 +44,19 @@ const NeuBox: React.FC<Props> = ({
       <div
         className={cn(
           'overflow-hidden rounded border-[3px]',
+          'bg-portage border-bunker shadow-neu-bunker-6',
+          className
+        )}
+        {...props}
+      >
+        {children}
+      </div>
+    )}
+
+    {variant === 'xl' && (
+      <div
+        className={cn(
+          'overflow-hidden rounded-md border-[3.5px]',
           'bg-portage border-bunker shadow-neu-bunker-6',
           className
         )}

@@ -20,7 +20,7 @@ const Footer: React.FC = () => (
 
         <div className="flex items-end space-x-2">
           <a
-            href="https://www.linkedin.com/in/williamtobing/"
+            href="https://www.linkedin.com/in/williamtobing"
             aria-label="Take a look at my LinkedIn account"
             target="_blank"
             rel="noreferrer"

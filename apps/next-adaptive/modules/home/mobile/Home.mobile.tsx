@@ -181,9 +181,8 @@ export const Home: React.FC = () => {
   const [isSidebarOpen, toggleSidebar] = useToggle();
   const [pageIsVisible, setPageIsVisible] = useState(true);
 
-  const handleVisibilityChange = (isVisible: boolean) => {
+  const handleVisibilityChange = (isVisible: boolean) =>
     setPageIsVisible(isVisible);
-  };
 
   return (
     <React.Fragment>
@@ -218,6 +217,7 @@ export const Home: React.FC = () => {
               </h1>
             </div>
 
+            {/* Roles */}
             <div className="grid grid-cols-2 gap-2">
               {roleData.map((item, i) => (
                 <NeuBox key={i} variant="sm">
