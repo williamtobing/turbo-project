@@ -7,7 +7,7 @@ import { Splide, SplideSlide } from '@splidejs/react-splide';
 import { Icon, Illustration, Logo } from '@/components/atoms';
 import { NeuBox } from '@/components/molecules';
 import { palette } from '@/theme.config';
-import { cn } from '@/utils';
+import { DateFormat, cn } from '@/utils';
 import '@splidejs/react-splide/css/core';
 
 const roleData = [
@@ -26,45 +26,6 @@ const roleData = [
   {
     role: 'Web Designer',
     icon: <Icon.IcoMacbook className="h-10 w-10" variant="line" />,
-  },
-];
-
-export const projectData = [
-  {
-    bgColor: cn('bg-pureWhite'),
-    logo: <Logo.JuraganMaterial className="h-20 w-20" />,
-  },
-  {
-    bgColor: cn('bg-kuponBlue'),
-    logo: (
-      <div className="mt-1">
-        <Logo.PintapKupon className="h-12 w-12" />
-        <p className="text-pureWhite text-center text-xs font-bold">KUPON</p>
-      </div>
-    ),
-  },
-  {
-    bgColor: cn('bg-retailBlue'),
-    logo: <Logo.PintapRetail className="mt-1.5" />,
-  },
-  {
-    bgColor: cn('bg-mitraWhite'),
-    logo: <Logo.PintapMitra />,
-  },
-  {
-    bgColor: cn('bg-pureWhite'),
-    logo: <Logo.XLAxiata />,
-  },
-  {
-    bgColor: cn('bg-axiataBlue'),
-    logo: (
-      <div>
-        <Logo.XLAxiata reverse />
-        <p className="text-pureWhite float-right -mt-0.5 text-[0.45rem]">
-          business solution
-        </p>
-      </div>
-    ),
   },
 ];
 
@@ -131,6 +92,91 @@ export const techStackData = [
   },
 ];
 
+export const projectData = [
+  {
+    bgColor: cn('bg-pureWhite'),
+    logo: <Logo.JuraganMaterial className="h-20 w-20" />,
+  },
+  {
+    bgColor: cn('bg-kuponBlue'),
+    logo: (
+      <div className="mt-1">
+        <Logo.PintapKupon className="h-12 w-12" />
+        <p className="text-pureWhite text-center text-xs font-bold">KUPON</p>
+      </div>
+    ),
+  },
+  {
+    bgColor: cn('bg-retailBlue'),
+    logo: <Logo.PintapRetail className="mt-1.5" />,
+  },
+  {
+    bgColor: cn('bg-mitraWhite'),
+    logo: <Logo.PintapMitra />,
+  },
+  {
+    bgColor: cn('bg-pureWhite'),
+    logo: <Logo.XLAxiata />,
+  },
+  {
+    bgColor: cn('bg-axiataBlue'),
+    logo: (
+      <div>
+        <Logo.XLAxiata reverse />
+        <p className="text-pureWhite float-right -mt-0.5 text-[0.45rem]">
+          business solution
+        </p>
+      </div>
+    ),
+  },
+];
+
+const timelineData = [
+  {
+    company: 'Juragan Material',
+    description: 'Frontend Engineer at Juragan Material',
+    date: new Date('2023-02'),
+    progress: 0.75,
+    latest: true,
+  },
+  {
+    company: 'Pintap',
+    description: 'Frontend Engineer at Pintap',
+    date: new Date('2022-02'),
+    progress: 1,
+  },
+  {
+    company: 'XL Axiata',
+    description: 'Web Developer at XL Axiata',
+    date: new Date('2021-03'),
+    progress: 1,
+  },
+  {
+    company: 'Wedocation',
+    description: 'Freelance at Wedocation',
+    date: new Date('2020-11'),
+    progress: 1,
+  },
+  {
+    company: 'Progate',
+    description: 'Mentor at Progate',
+    date: new Date('2020-09'),
+    progress: 1,
+  },
+  {
+    company: 'Super Indo',
+    description: 'Intern at Super Indo',
+    date: new Date('2019-06'),
+    progress: 1,
+  },
+  {
+    company: null,
+    description: 'Start College',
+    date: new Date('2017-08'),
+    progress: 1,
+  },
+];
+
 const Folder: React.FC<{
   name: string;
   onDoubleClick: () => void;
@@ -187,7 +233,7 @@ export const Home: React.FC = () => {
   return (
     <React.Fragment>
       <main className="bg-myWhite min-h-[100dvh]">
-        <div className="mx-auto max-w-screen-xl space-y-8 py-4">
+        <div className="mx-auto max-w-screen-xl space-y-8 pb-12 pt-4">
           <header className="space-y-2 px-4">
             <div className="flex">
               <h1>
@@ -362,6 +408,39 @@ export const Home: React.FC = () => {
                   </PageVisibility>
                 </div>
               </div>
+            </div>
+          </section>
+
+          {/* Timeline */}
+          <section className="space-y-3 px-4">
+            <h2 className="text-3xl font-bold underline">Timeline</h2>
+
+            <div className="grid grid-cols-2 gap-6">
+              {timelineData
+                .slice()
+                .reverse()
+                .map((item, i) => (
+                  <NeuBox
+                    key={i}
+                    variant="xl"
+                    className={cn(
+                      'relative',
+                      item.latest ? 'bg-dullLavender' : ''
+                    )}
+                  >
+                    <div className="bg-chalky absolute right-0 mt-0.5 w-[4.75rem] rounded-l-md px-2">
+                      <p className="text-right text-xs font-semibold">
+                        {DateFormat(item.date).toShortMonth()}
+                      </p>
+                    </div>
+
+                    <div className="p-3.5">
+                      <p className="text-myWhite font-bold">
+                        {item.description}
+                      </p>
+                    </div>
+                  </NeuBox>
+                ))}
             </div>
           </section>
         </div>
