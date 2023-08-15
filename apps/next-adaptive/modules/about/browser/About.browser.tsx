@@ -147,7 +147,7 @@ export const About: React.FC = () => (
         </header>
 
         <div className="bg-chalky flex flex-1">
-          <section className="border-bunker w-1/5 space-y-1 border-r-2 p-1">
+          <section className="border-bunker w-1/5 min-w-[8rem] space-y-1 border-r-2 p-1">
             <Link href="/">
               <div className="hover:border-bunker flex cursor-default items-center space-x-1 rounded border-2 border-transparent">
                 <Icon.IcoHome4 variant="line" />
