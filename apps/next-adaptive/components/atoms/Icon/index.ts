@@ -11,6 +11,9 @@ import IcoLayout5 from './IcoLayout5';
 import IcoMenuFold from './IcoMenuFold';
 import IcoMenuUnfold from './IcoMenuUnfold';
 import IcoSpotify from './IcoSpotify';
+import IcoSquare from './IcoSquare';
+import IcoClose from './IcoClose';
+import IcoSubtract from './IcoSubtract';
 
 const icons = {
   IcoReact,
@@ -26,6 +29,9 @@ const icons = {
   IcoMenuFold,
   IcoMenuUnfold,
   IcoSpotify,
+  IcoSquare,
+  IcoClose,
+  IcoSubtract,
 };
 
 export default icons;
