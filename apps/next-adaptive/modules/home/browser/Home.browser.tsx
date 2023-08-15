@@ -472,7 +472,7 @@ export const Home: React.FC = () => {
                   </div>
 
                   <div className="bg-chalky h-full space-y-1 p-3.5">
-                    <div className="">
+                    <div>
                       <p className="whitespace-nowrap text-lg font-bold">
                         {item.description}
                       </p>
