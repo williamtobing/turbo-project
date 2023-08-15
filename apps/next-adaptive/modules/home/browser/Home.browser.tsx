@@ -6,6 +6,8 @@ import { useRouter } from 'next/navigation';
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import { Icon, Illustration, Logo } from '@/components/atoms';
 import { NeuBox } from '@/components/molecules';
+import { Sidebar } from '@/components/organisms';
+import { useToggle } from '@/hooks';
 import { palette } from '@/theme.config';
 import { DateFormat, cn } from '@/utils';
 import '@splidejs/react-splide/css/core';
@@ -231,6 +233,7 @@ const Folder: React.FC<{
 
 export const Home: React.FC = () => {
   const router = useRouter();
+  const [isSidebarOpen, toggleSidebar] = useToggle();
   const [pageIsVisible, setPageIsVisible] = useState(true);
 
   const handleVisibilityChange = (isVisible: boolean) =>
@@ -238,23 +241,27 @@ export const Home: React.FC = () => {
 
   return (
     <React.Fragment>
+      <Sidebar isOpen={isSidebarOpen} toggle={toggleSidebar} />
+
       <main className="bg-myWhite min-h-[100dvh]">
         <div className="mx-auto max-w-screen-xl space-y-8 pb-12 pt-4">
-          <header className="space-y-2 px-4">
+          <header className="relative space-y-2 px-4">
             <div className="flex">
               <h1>
-                <span className="text-5xl font-bold">Hi there,</span>
+                <span className="text-4xl font-bold lg:text-5xl">
+                  Hi there,
+                </span>
                 <br />
-                <span className="text-8xl font-extrabold">
+                <span className="text-6xl font-extrabold lg:text-8xl">
                   I am <span className="text-daisyBush">William</span>
                 </span>
                 <br />
-                <span className="text-4xl font-medium italic">
+                <span className="text-3xl font-medium italic lg:text-4xl">
                   a Software Engineer
                 </span>
               </h1>
 
-              <div className="flex flex-1 items-end justify-center space-x-16">
+              <div className="hidden flex-1 items-end justify-center space-x-16 lg:flex">
                 <Folder
                   name="About"
                   onDoubleClick={() => router.push('/about')}
@@ -275,17 +282,29 @@ export const Home: React.FC = () => {
                 />
               </div>
             </div>
+
+            <NeuBox
+              variant="sm"
+              className="absolute right-0 top-0 mx-4 cursor-pointer p-1 lg:hidden"
+              role="button"
+              aria-label="Main Menu"
+              onClick={toggleSidebar}
+              onKeyDown={(e) => e.key === 'Enter' && toggleSidebar()}
+              tabIndex={0}
+            >
+              <Icon.IcoMenuUnfold className="h-5 w-5" variant="fill" />
+            </NeuBox>
           </header>
 
           <section className="px-4">
-            <div className="flex space-x-8">
-              <div className="relative">
+            <div className="flex lg:space-x-8">
+              {/* IPhone and the content */}
+              <div className="relative hidden lg:block">
                 <div className="absolute flex h-full w-full items-center justify-center">
                   <div className="flex space-x-2">
                     <p className="italic">{`<InProgress />`}</p>
                   </div>
                 </div>
-
                 <div className="absolute top-8 flex w-full justify-center">
                   <div className="bg-skyBlue/0 flex h-8 w-[7.5rem] items-center justify-center space-x-1.5 rounded-full">
                     <div className="bg-dullLavender/0 h-6 w-6 rounded-full"></div>
@@ -298,13 +317,12 @@ export const Home: React.FC = () => {
                     </div>
                   </div>
                 </div>
-
                 <Illustration.IPhone14Pro />
               </div>
 
-              <div className="space-y-6">
+              <div className="w-full space-y-6">
                 {/* Roles */}
-                <div className="mt-6 grid grid-cols-2 gap-4">
+                <div className="mt-6 grid grid-cols-1 gap-4 md:grid-cols-2">
                   {roleData.map((item, i) => (
                     <NeuBox key={i} variant="xl">
                       <div className="flex">
@@ -438,7 +456,7 @@ export const Home: React.FC = () => {
           <section className="space-y-3 px-4">
             <h2 className="text-3xl font-bold underline">Timeline</h2>
 
-            <div className="grid grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
               {timelineData.map((item, i) => (
                 <NeuBox key={i} variant="xl" className={cn('relative')}>
                   <div className="flex justify-end space-x-1 p-1">
@@ -453,9 +471,11 @@ export const Home: React.FC = () => {
                     </div>
                   </div>
 
-                  <div className="bg-chalky space-y-1 p-3.5">
+                  <div className="bg-chalky h-full space-y-1 p-3.5">
                     <div className="">
-                      <p className="text-lg font-bold">{item.description}</p>
+                      <p className="whitespace-nowrap text-lg font-bold">
+                        {item.description}
+                      </p>
                       <p className="text-xs font-semibold">
                         {DateFormat(item.startDate).toShortMonth()} -{' '}
                         {item.endDate
