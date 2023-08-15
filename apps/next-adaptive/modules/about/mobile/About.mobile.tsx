@@ -60,19 +60,21 @@ export const About = () => {
 
           <section className="flex-1 px-4">
             <div className="space-y-2">
-              <p>
+              <p className="font-medium">
                 This website is the 4th version of the portfolio site that I
-                developed. And this fourth version is currently a refined
+                developed myself. And this fourth version is currently a refined
                 version of the previous version 4. So this website is the second
                 version of version 4 😃
               </p>
 
-              <p>Let&apos;s have a look at the history</p>
+              <p className="font-medium">
+                Let&apos;s have a look at the history
+              </p>
 
               <ul className="ml-5 space-y-2">
                 {siteData.map((item, i) => (
                   <li key={i} className="list-disc">
-                    <p>{item.text}</p>
+                    <p className="font-medium">{item.text}</p>
                     <a
                       href={item.url}
                       className="text-daisyBush italic underline"

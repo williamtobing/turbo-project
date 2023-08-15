@@ -14,6 +14,13 @@ import IcoSpotify from './IcoSpotify';
 import IcoSquare from './IcoSquare';
 import IcoClose from './IcoClose';
 import IcoSubtract from './IcoSubtract';
+import IcoExternalLink from './IcoExternalLink';
+import IcoArrowLeft from './IcoArrowLeft';
+import IcoArrowRightS from './IcoArrowRightS';
+import IcoFolder3 from './IcoFolder3';
+import IcoFolder5 from './IcoFolder5';
+import IcoHome4 from './IcoHome4';
+import IcoProfile from './IcoProfile';
 
 const icons = {
   IcoReact,
@@ -32,6 +39,13 @@ const icons = {
   IcoSquare,
   IcoClose,
   IcoSubtract,
+  IcoExternalLink,
+  IcoArrowLeft,
+  IcoArrowRightS,
+  IcoFolder3,
+  IcoFolder5,
+  IcoHome4,
+  IcoProfile,
 };
 
 export default icons;
