@@ -135,45 +135,51 @@ const timelineData = [
   {
     company: 'Juragan Material',
     description: 'Frontend Engineer at Juragan Material',
-    date: new Date('2023-02'),
-    progress: 0.75,
+    startDate: new Date('2023-02'),
+    progress: cn('w-[95%]'),
     latest: true,
   },
   {
     company: 'Pintap',
     description: 'Frontend Engineer at Pintap',
-    date: new Date('2022-02'),
-    progress: 1,
+    startDate: new Date('2022-02'),
+    endDate: new Date('2023-02'),
+    progress: cn('w-[100%]'),
   },
   {
     company: 'XL Axiata',
     description: 'Web Developer at XL Axiata',
-    date: new Date('2021-03'),
-    progress: 1,
+    startDate: new Date('2021-03'),
+    endDate: new Date('2022-02'),
+    progress: cn('w-[100%]'),
   },
   {
     company: 'Wedocation',
     description: 'Freelance at Wedocation',
-    date: new Date('2020-11'),
-    progress: 1,
+    startDate: new Date('2020-11'),
+    endDate: new Date('2021-03'),
+    progress: cn('w-[100%]'),
   },
   {
     company: 'Progate',
     description: 'Mentor at Progate',
-    date: new Date('2020-09'),
-    progress: 1,
+    startDate: new Date('2020-09'),
+    endDate: new Date('2020-11'),
+    progress: cn('w-[100%]'),
   },
   {
     company: 'Super Indo',
     description: 'Intern at Super Indo',
-    date: new Date('2019-06'),
-    progress: 1,
+    startDate: new Date('2019-06'),
+    endDate: new Date('2019-08'),
+    progress: cn('w-[100%]'),
   },
   {
     company: null,
     description: 'Start College',
-    date: new Date('2017-08'),
-    progress: 1,
+    startDate: new Date('2017-08'),
+    endDate: new Date('2020-08'),
+    progress: cn('w-[100%]'),
   },
 ];
 
@@ -434,22 +440,43 @@ export const Home: React.FC = () => {
 
             <div className="grid grid-cols-2 gap-6">
               {timelineData.map((item, i) => (
-                <NeuBox
-                  key={i}
-                  variant="xl"
-                  className={cn(
-                    'relative',
-                    item.latest ? 'bg-dullLavender' : ''
-                  )}
-                >
-                  <div className="bg-chalky absolute right-0 mt-0.5 w-[4.75rem] rounded-l-md px-2">
-                    <p className="text-right text-xs font-semibold">
-                      {DateFormat(item.date).toShortMonth()}
-                    </p>
+                <NeuBox key={i} variant="xl" className={cn('relative')}>
+                  <div className="flex justify-end space-x-1 p-1">
+                    <div className="border-bunker rounded border-2">
+                      <Icon.IcoSubtract className="h-4 w-4" variant="line" />
+                    </div>
+                    <div className="border-bunker rounded border-2">
+                      <Icon.IcoSquare className="h-4 w-4" variant="line" />
+                    </div>
+                    <div className="border-bunker rounded border-2">
+                      <Icon.IcoClose className="h-4 w-4" variant="line" />
+                    </div>
                   </div>
 
-                  <div className="p-3.5">
-                    <p className="text-myWhite font-bold">{item.description}</p>
+                  <div className="bg-chalky space-y-1 p-3.5">
+                    <div className="">
+                      <p className="text-lg font-bold">{item.description}</p>
+                      <p className="text-xs font-semibold">
+                        {DateFormat(item.startDate).toShortMonth()} -{' '}
+                        {item.endDate
+                          ? `${DateFormat(item.endDate).toShortMonth()}`
+                          : 'Present'}
+                      </p>
+                    </div>
+                    <div className="bg-pureWhite border-bunker h-5 w-full border-2">
+                      <div
+                        className={cn(
+                          'bg-grayChateau block h-full',
+                          item.progress,
+                          item.progress !== 'w-[100%]' ? 'animate-pulse' : ''
+                        )}
+                      ></div>
+                    </div>
+                    <p className="font-semibold">
+                      {item.progress === 'w-[100%]'
+                        ? 'Finished'
+                        : 'In progress...'}
+                    </p>
                   </div>
                 </NeuBox>
               ))}
