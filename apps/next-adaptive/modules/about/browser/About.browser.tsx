@@ -5,7 +5,7 @@ import { NeuBox } from '@/components/molecules';
 import { cn } from '@/utils';
 import { palette } from '@/theme.config';
 
-const siteData = [
+export const siteData = [
   {
     version: 'V1',
     text: 'The Version One (V1)',
@@ -110,7 +110,7 @@ export const About: React.FC = () => (
         )}
         variant="xl"
       >
-        <header className="">
+        <header>
           <div className="border-bunker flex justify-between border-b-2">
             <div className="flex items-center">
               <h1 className="pl-1.5 text-lg font-medium">About</h1>
