@@ -15,7 +15,6 @@
     "clsx": "^2.0.0",
     "dayjs": "^1.11.9",
     "next": "13.4.13",
-    "posthog-js": "^1.184.2",
     "react": "18.2.0",
     "react-device-detect": "^2.2.3",
     "react-dom": "18.2.0",
