@@ -1,14 +1,9 @@
+import './globals.css';
 import type { Metadata } from 'next';
 import { Plus_Jakarta_Sans } from 'next/font/google';
 import { palette } from '@/theme.config';
-import './globals.css';
 
-import { PHProvider } from './providers';
-import dynamic from 'next/dynamic';
-
-const PostHogPageView = dynamic(() => import('./PostHogPageView'), {
-  ssr: false,
-});
+import { CSPostHogProvider } from './providers';
 
 const jakarta = Plus_Jakarta_Sans({
   subsets: ['latin'],
@@ -35,15 +30,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <PHProvider>
+      <CSPostHogProvider>
         <body
           className={`${jakarta.variable} font-sans`}
           suppressHydrationWarning={true}
         >
-          <PostHogPageView />
           {children}
         </body>
-      </PHProvider>
+      </CSPostHogProvider>
     </html>
   );
 }
