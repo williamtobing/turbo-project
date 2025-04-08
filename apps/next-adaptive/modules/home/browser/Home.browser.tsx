@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import Image from 'next/image';
 import Ticker from 'react-ticker';
 import PageVisibility from 'react-page-visibility';
+import Spline from '@splinetool/react-spline';
 import { useRouter } from 'next/navigation';
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import { Icon, Illustration, Logo } from '@/components/atoms';
@@ -300,9 +301,13 @@ export const Home: React.FC = () => {
             <div className="flex lg:space-x-8">
               {/* IPhone and the content */}
               <div className="relative hidden lg:block">
-                <div className="absolute flex h-full w-full items-center justify-center">
-                  <div className="flex space-x-2">
-                    <p className="italic">{`<InProgress />`}</p>
+                <Illustration.IPhone14Pro />
+                <div className="absolute left-0 top-0 flex h-full w-full items-center justify-center">
+                  <div className="h-full w-full overflow-hidden">
+                    <Spline
+                      className="scale-125"
+                      scene="https://prod.spline.design/ofF6nVnVhbWqHLFx/scene.splinecode"
+                    />
                   </div>
                 </div>
                 <div className="absolute top-8 flex w-full justify-center">
@@ -317,7 +322,6 @@ export const Home: React.FC = () => {
                     </div>
                   </div>
                 </div>
-                <Illustration.IPhone14Pro />
               </div>
 
               <div className="w-full space-y-6">

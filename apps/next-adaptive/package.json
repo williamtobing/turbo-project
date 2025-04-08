@@ -12,6 +12,8 @@
   },
   "dependencies": {
     "@splidejs/react-splide": "github:williamtobing/react-splide",
+    "@splinetool/react-spline": "^4.0.0",
+    "@splinetool/runtime": "^1.9.82",
     "clsx": "^2.0.0",
     "dayjs": "^1.11.9",
     "next": "13.4.13",
