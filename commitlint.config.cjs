@@ -14,6 +14,7 @@ module.exports = {
         'temp',
         'vercel',
         'build',
+        'perf',
       ],
     ],
     'body-max-line-length': [0],
