@@ -1,8 +1,7 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, Suspense } from 'react';
 import Image from 'next/image';
 import Ticker from 'react-ticker';
 import PageVisibility from 'react-page-visibility';
-import Spline from '@splinetool/react-spline';
 import { useRouter } from 'next/navigation';
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import { Icon, Illustration, Logo } from '@/components/atoms';
@@ -12,6 +11,8 @@ import { useToggle } from '@/hooks';
 import { palette } from '@/theme.config';
 import { DateFormat, cn } from '@/utils';
 import '@splidejs/react-splide/css/core';
+
+const Spline = React.lazy(() => import('@splinetool/react-spline'));
 
 const roleData = [
   {
@@ -304,10 +305,18 @@ export const Home: React.FC = () => {
                 <Illustration.IPhone14Pro />
                 <div className="absolute left-0 top-0 flex h-full w-full items-center justify-center">
                   <div className="h-full w-full overflow-hidden">
-                    <Spline
-                      className="scale-125"
-                      scene="https://prod.spline.design/ofF6nVnVhbWqHLFx/scene.splinecode"
-                    />
+                    <Suspense
+                      fallback={
+                        <div className="flex h-full w-full items-center justify-center">
+                          <p className="italic">{`<Loading... />`}</p>
+                        </div>
+                      }
+                    >
+                      <Spline
+                        className="scale-125"
+                        scene="https://prod.spline.design/ofF6nVnVhbWqHLFx/scene.splinecode"
+                      />
+                    </Suspense>
                   </div>
                 </div>
                 <div className="absolute top-8 flex w-full justify-center">
